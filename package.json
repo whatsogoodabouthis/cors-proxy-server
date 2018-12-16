@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/messier31/cors-proxy-server.git"
+    "url": "git+https:/"
   },
   "author": "Svetlana Linuxenko <linuxenko@yahoo.com> (http://www.linuxenko.pro)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/messier31/cors-proxy-server/issues"
+    "url": "https:/"
   },
-  "homepage": "https://github.com/messier31/cors-proxy-server#readme",
+  "homepage": "https://",
   "dependencies": {
     "dotenv": "^2.0.0",
     "request": "^2.72.0"
