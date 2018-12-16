@@ -6,7 +6,6 @@ var urlRegex = /^https?/;
 var sizeLimit = process.env.SIZE_LIMIT || 512 * 1024;
 var requestsLimit = process.env.REQ_LIMIT || 15;
 var copyHeaders = ['content-type'];
-var removeHeaders = ['User-Agent'];
 var reqIPs = [];
 
 
@@ -95,6 +94,7 @@ http.createServer(function (req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-type');
   res.setHeader('Access-Control-Allow-Credentials', false);
+  res.setHeader('User-Agent', '098ckjashc');
 
   var options = {
     url : url,
