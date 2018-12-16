@@ -6,6 +6,7 @@ var urlRegex = /^https?/;
 var sizeLimit = process.env.SIZE_LIMIT || 512 * 1024;
 var requestsLimit = process.env.REQ_LIMIT || 15;
 var copyHeaders = ['user-agent', 'content-type'];
+var removeHeaders = ['user-agent'];
 var reqIPs = [];
 
 
