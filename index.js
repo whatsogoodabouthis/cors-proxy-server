@@ -6,6 +6,7 @@ var urlRegex = /^https?/;
 var sizeLimit = process.env.SIZE_LIMIT || 512 * 1024;
 var requestsLimit = process.env.REQ_LIMIT || 15;
 var copyHeaders = ['content-type'];
+var removeHeaders = ['useragent'];
 var reqIPs = [];
 
 
@@ -30,14 +31,14 @@ function wrongURI(res) {
   res.setHeader('Content-type', 'text/html');
   res.writeHead(404);
   res.end('<h1>Wrong request.</h1><p>For more info check out the spec:' +
-  ' <a href="https://github.com/messier31/cors-proxy-spec">https://github.com/messier31/cors-proxy-spec</a></p>');
+  ' <a href="se</a></p>');
 }
 
 function banner(res) {
   res.setHeader('Content-type', 'text/html');
   res.writeHead(200);
   res.end('<h1>CORS PROXY SERVER</h1><p><a href="https://github.com/messier31/cors-proxy-server">' +
-    'https://github.com/messier31/cors-proxy-server</a></p>');
+    'se</a></p>');
 }
 
 function limitExceed(res) {
@@ -94,7 +95,7 @@ http.createServer(function (req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-type');
   res.setHeader('Access-Control-Allow-Credentials', false);
-  res.setHeader('User-Agent', '098ckjashc');
+  
 
   var options = {
     url : url,
