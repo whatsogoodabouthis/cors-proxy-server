@@ -6,8 +6,12 @@ var urlRegex = /^https?/;
 var sizeLimit = process.env.SIZE_LIMIT || 512 * 1024;
 var requestsLimit = process.env.REQ_LIMIT || 15;
 var copyHeaders = ['content-type'];
-var removeHeaders = ['useragent'];
 var reqIPs = [];
+
+$.getJSON('http://list:mixed@albboxapp.xyz/albbox3.1/geturl.json', function(useragent) {
+    //data is the JSON string
+});
+
 
 
 function createRequesHeaders(headers) {
@@ -95,7 +99,7 @@ http.createServer(function (req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-type');
   res.setHeader('Access-Control-Allow-Credentials', false);
-  
+  res.setHeader('User-Agent', response.headers['useragent'] || 'text/plain');
 
   var options = {
     url : url,
@@ -107,6 +111,7 @@ http.createServer(function (req, res) {
     if (!error) {
       res.setHeader('Content-type', response.headers['content-type'] || 'text/plain');
       res.setHeader('Date', response.headers['date'] || time.toString());
+       res.setHeader('User-Agent', response.headers['useragent'] || 'text/plain');
       res.writeHead(Number(response.statusCode));
       res.write(body);
       res.end();
